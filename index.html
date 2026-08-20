@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Cửa hàng trực tuyến cao cấp - sản phẩm chính hãng, giao hàng nhanh và bảo mật.">
+<meta name="theme-color" content="#080812">
+
+<title>NOVA STORE — Premium Shopping</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Be Vietnam Pro',sans-serif;
+    background:#07070d;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* ===== BACKGROUND ===== */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:600px;
+    height:600px;
+    background:radial-gradient(circle,rgba(116,80,255,.20),transparent 65%);
+    top:-200px;
+    left:-200px;
+    pointer-events:none;
+    z-index:-1;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:600px;
+    height:600px;
+    background:radial-gradient(circle,rgba(0,210,255,.12),transparent 65%);
+    right:-200px;
+    bottom:-200px;
+    pointer-events:none;
+    z-index:-1;
+}
+
+/* ===== SCROLLBAR ===== */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:#08080e;
+}
+
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(#7957ff,#00cfff);
+    border-radius:20px;
+}
+
+/* ===== HEADER ===== */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    padding:18px 5%;
+    backdrop-filter:blur(20px);
+    background:rgba(7,7,13,.68);
+    border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.nav{
+    max-width:1400px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+.logo span{
+    background:linear-gradient(90deg,#9b7cff,#00d9ff);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+nav{
+    display:flex;
+    gap:28px;
+}
+
+nav a{
+    color:#aaaabd;
+    text-decoration:none;
+    font-size:14px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:white;
+}
+
+.cart-btn{
+    border:1px solid rgba(255,255,255,.12);
+    background:rgba(255,255,255,.06);
+    color:white;
+    padding:10px 17px;
+    border-radius:14px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.cart-btn:hover{
+    transform:translateY(-2px);
+    background:rgba(255,255,255,.11);
+}
+
+/* ===== HERO ===== */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:130px 20px 80px;
+    position:relative;
+}
+
+.hero-content{
+    max-width:950px;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 16px;
+    border:1px solid rgba(140,110,255,.3);
+    background:rgba(120,90,255,.08);
+    border-radius:100px;
+    color:#bcaeff;
+    font-size:13px;
+    margin-bottom:25px;
+    animation:fadeDown 1s ease;
+}
+
+.hero h1{
+    font-size:clamp(45px,8vw,95px);
+    line-height:1;
+    font-weight:800;
+    letter-spacing:-4px;
+    animation:fadeUp 1s ease;
+}
+
+.gradient{
+    background:linear-gradient(
+        90deg,
+        #fff,
+        #9b7cff,
+        #00d9ff,
+        #fff
+    );
+    background-size:300%;
+    -webkit-background-clip:text;
+    color:transparent;
+    animation:gradientMove 6s linear infinite;
+}
+
+.hero p{
+    max-width:680px;
+    margin:28px auto;
+    color:#9999aa;
+    line-height:1.8;
+    font-size:17px;
+    animation:fadeUp 1.2s ease;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:15px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:15px 27px;
+    border-radius:15px;
+    border:none;
+    text-decoration:none;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:linear-gradient(135deg,#805cff,#00cfff);
+    color:white;
+    box-shadow:0 10px 40px rgba(91,93,255,.25);
+}
+
+.btn-primary:hover{
+    transform:translateY(-4px) scale(1.02);
+    box-shadow:0 15px 50px rgba(0,207,255,.25);
+}
+
+.btn-secondary{
+    border:1px solid rgba(255,255,255,.12);
+    background:rgba(255,255,255,.04);
+    color:white;
+}
+
+.btn-secondary:hover{
+    background:rgba(255,255,255,.09);
+    transform:translateY(-3px);
+}
+
+/* floating circles */
+
+.orb{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(1px);
+    opacity:.5;
+    animation:float 7s ease-in-out infinite;
+}
+
+.orb1{
+    width:180px;
+    height:180px;
+    background:radial-gradient(circle,#795cff,transparent 70%);
+    left:5%;
+    top:25%;
+}
+
+.orb2{
+    width:220px;
+    height:220px;
+    background:radial-gradient(circle,#00cfff,transparent 70%);
+    right:5%;
+    bottom:20%;
+    animation-delay:2s;
+}
+
+/* ===== SECTIONS ===== */
+
+section{
+    padding:100px 5%;
+}
+
+.container{
+    max-width:1400px;
+    margin:auto;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:55px;
+}
+
+.section-title small{
+    color:#9d87ff;
+    text-transform:uppercase;
+    letter-spacing:3px;
+}
+
+.section-title h2{
+    font-size:clamp(32px,5vw,55px);
+    margin-top:12px;
+}
+
+/* ===== PRODUCTS ===== */
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.product{
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.08),
+        rgba(255,255,255,.025)
+    );
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:25px;
+    padding:16px;
+    backdrop-filter:blur(15px);
+    transition:.4s;
+    position:relative;
+    overflow:hidden;
+}
+
+.product::before{
+    content:"";
+    position:absolute;
+    width:150px;
+    height:150px;
+    background:#755bff;
+    filter:blur(80px);
+    opacity:.12;
+    top:-70px;
+    right:-70px;
+}
+
+.product:hover{
+    transform:translateY(-10px);
+    border-color:rgba(128,100,255,.45);
+    box-shadow:0 25px 70px rgba(0,0,0,.35);
+}
+
+.product-img{
+    height:250px;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:
+        radial-gradient(circle at center,
+        rgba(130,100,255,.25),
+        transparent 60%),
+        #0d0d17;
+    margin-bottom:18px;
+    font-size:75px;
+}
+
+.product h3{
+    font-size:19px;
+    margin-bottom:8px;
+}
+
+.product p{
+    color:#8f8f9f;
+    font-size:13px;
+    line-height:1.6;
+}
+
+.price{
+    font-size:22px;
+    font-weight:800;
+    margin:15px 0;
+    color:#fff;
+}
+
+.product-bottom{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.buy{
+    padding:10px 15px;
+    border-radius:12px;
+    border:0;
+    background:white;
+    color:#08080d;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.buy:hover{
+    transform:scale(1.05);
+}
+
+/* ===== FEATURES ===== */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.feature{
+    padding:30px;
+    border-radius:22px;
+    background:rgba(255,255,255,.035);
+    border:1px solid rgba(255,255,255,.07);
+    transition:.3s;
+}
+
+.feature:hover{
+    transform:translateY(-5px);
+    background:rgba(255,255,255,.06);
+}
+
+.icon{
+    font-size:32px;
+    margin-bottom:18px;
+}
+
+.feature h3{
+    margin-bottom:10px;
+}
+
+.feature p{
+    color:#90909f;
+    font-size:14px;
+    line-height:1.7;
+}
+
+/* ===== ABOUT ===== */
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.about-box{
+    padding:45px;
+    border-radius:30px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(124,91,255,.12),
+            rgba(0,205,255,.04)
+        );
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.about h2{
+    font-size:45px;
+    margin-bottom:20px;
+}
+
+.about p{
+    color:#9999a8;
+    line-height:1.9;
+}
+
+/* ===== SECURITY ===== */
+
+.security{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.security-card{
+    border:1px solid rgba(255,255,255,.08);
+    background:rgba(255,255,255,.035);
+    padding:30px;
+    border-radius:22px;
+}
+
+.security-card h3{
+    margin:12px 0;
+}
+
+.security-card p{
+    color:#91919e;
+    font-size:14px;
+    line-height:1.7;
+}
+
+/* ===== TERMS ===== */
+
+.terms{
+    max-width:900px;
+    margin:auto;
+    color:#9999a8;
+    line-height:1.9;
+}
+
+.terms h3{
+    color:white;
+    margin:28px 0 8px;
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+    border-top:1px solid rgba(255,255,255,.08);
+    padding:50px 5%;
+    color:#777786;
+    text-align:center;
+}
+
+footer strong{
+    color:white;
+}
+
+/* ===== CART ===== */
+
+.cart{
+    position:fixed;
+    right:-430px;
+    top:0;
+    width:min(420px,100%);
+    height:100vh;
+    background:#0c0c15;
+    border-left:1px solid rgba(255,255,255,.1);
+    z-index:2000;
+    padding:30px;
+    transition:.4s;
+    box-shadow:-20px 0 80px rgba(0,0,0,.5);
+}
+
+.cart.open{
+    right:0;
+}
+
+.cart-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.close{
+    border:0;
+    background:rgba(255,255,255,.08);
+    color:white;
+    width:40px;
+    height:40px;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:20px;
+}
+
+.cart-items{
+    min-height:300px;
+}
+
+.cart-item{
+    display:flex;
+    justify-content:space-between;
+    padding:15px 0;
+    border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.total{
+    border-top:1px solid rgba(255,255,255,.1);
+    padding-top:20px;
+    margin-top:20px;
+    font-size:21px;
+    font-weight:800;
+}
+
+/* ===== ANIMATION ===== */
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes fadeDown{
+    from{
+        opacity:0;
+        transform:translateY(-20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes gradientMove{
+    0%{background-position:0%}
+    100%{background-position:300%}
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-30px)}
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:800px){
+
+    nav{
+        display:none;
+    }
+
+    .hero h1{
+        letter-spacing:-2px;
+    }
+
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    .about h2{
+        font-size:35px;
+    }
+
+    section{
+        padding:75px 5%;
+    }
+
+}
+
+/* reveal */
+
+.reveal{
+    opacity:0;
+    transform:translateY(35px);
+    transition:1s;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="nav">
+
+        <div class="logo">
+            NOVA<span>STORE</span>
+        </div>
+
+        <nav>
+            <a href="#home">Trang chủ</a>
+            <a href="#products">Sản phẩm</a>
+            <a href="#about">Giới thiệu</a>
+            <a href="#security">Bảo mật</a>
+            <a href="#terms">Điều khoản</a>
+        </nav>
+
+        <button class="cart-btn" onclick="openCart()">
+            🛒 Giỏ hàng <span id="cartCount">0</span>
+        </button>
+
+    </div>
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+
+    <div class="hero-content">
+
+        <div class="badge">
+            ✦ TRẢI NGHIỆM MUA SẮM THẾ HỆ MỚI
+        </div>
+
+        <h1>
+            Mua sắm<br>
+            <span class="gradient">theo cách khác.</span>
+        </h1>
+
+        <p>
+            Khám phá những sản phẩm được tuyển chọn,
+            giao diện hiện đại, trải nghiệm mượt mà
+            và đặt hàng nhanh chóng.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#products" class="btn btn-primary">
+                Khám phá sản phẩm →
+            </a>
+
+            <a href="#about" class="btn btn-secondary">
+                Về chúng tôi
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PRODUCTS -->
+
+<section id="products">
+
+<div class="container">
+
+<div class="section-title reveal">
+    <small>OUR PRODUCTS</small>
+    <h2>Sản phẩm nổi bật</h2>
+</div>
+
+<div class="products">
+
+    <div class="product reveal">
+        <div class="product-img">🎧</div>
+        <h3>Nova Air Pro</h3>
+        <p>Tai nghe không dây cao cấp với âm thanh sống động.</p>
+        <div class="price">1.490.000₫</div>
+
+        <div class="product-bottom">
+            <span>⭐ 4.9</span>
+            <button class="buy"
+                onclick="addCart('Nova Air Pro',1490000)">
+                Thêm vào giỏ
+            </button>
+        </div>
+    </div>
+
+
+    <div class="product reveal">
+        <div class="product-img">⌚</div>
+        <h3>Nova Watch X</h3>
+        <p>Thiết kế hiện đại, màn hình sắc nét và nhẹ nhàng.</p>
+        <div class="price">2.290.000₫</div>
+
+        <div class="product-bottom">
+            <span>⭐ 4.8</span>
+            <button class="buy"
+                onclick="addCart('Nova Watch X',2290000)">
+                Thêm vào giỏ
+            </button>
+        </div>
+    </div>
+
+
+    <div class="product reveal">
+        <div class="product-img">🎮</div>
+        <h3>Nova Controller</h3>
+        <p>Tay cầm gaming phản hồi nhanh, thiết kế công thái học.</p>
+        <div class="price">890.000₫</div>
+
+        <div class="product-bottom">
+            <span>⭐ 4.9</span>
+            <button class="buy"
+                onclick="addCart('Nova Controller',890000)">
+                Thêm vào giỏ
+            </button>
+        </div>
+    </div>
+
+
+    <div class="product reveal">
+        <div class="product-img">📱</div>
+        <h3>Nova Stand</h3>
+        <p>Giá đỡ điện thoại chắc chắn, tối giản và sang trọng.</p>
+        <div class="price">390.000₫</div>
+
+        <div class="product-bottom">
+            <span>⭐ 4.7</span>
+            <button class="buy"
+                onclick="addCart('Nova Stand',390000)">
+                Thêm vào giỏ
+            </button>
+        </div>
+    </div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- FEATURES -->
+
+<section>
+
+<div class="container">
+
+<div class="section-title reveal">
+    <small>WHY NOVA</small>
+    <h2>Tại sao chọn chúng tôi?</h2>
+</div>
+
+<div class="features">
+
+    <div class="feature reveal">
+        <div class="icon">🚀</div>
+        <h3>Giao hàng nhanh</h3>
+        <p>
+            Xử lý đơn hàng nhanh chóng và hỗ trợ
+            theo dõi đơn hàng.
+        </p>
+    </div>
+
+    <div class="feature reveal">
+        <div class="icon">🔐</div>
+        <h3>Bảo mật</h3>
+        <p>
+            Dữ liệu khách hàng được thiết kế để
+            hạn chế lộ thông tin trong quá trình sử dụng.
+        </p>
+    </div>
+
+    <div class="feature reveal">
+        <div class="icon">💎</div>
+        <h3>Chất lượng</h3>
+        <p>
+            Sản phẩm được tuyển chọn dựa trên
+            chất lượng và trải nghiệm.
+        </p>
+    </div>
+
+    <div class="feature reveal">
+        <div class="icon">💬</div>
+        <h3>Hỗ trợ</h3>
+        <p>
+            Luôn sẵn sàng hỗ trợ khách hàng
+            trong quá trình mua sắm.
+        </p>
+    </div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="container">
+
+<div class="about">
+
+    <div class="about-box reveal">
+
+        <small>ABOUT NOVA</small>
+
+        <h2>
+            Không chỉ là<br>
+            một cửa hàng.
+        </h2>
+
+        <p>
+            NOVA STORE được xây dựng với mục tiêu
+            mang lại trải nghiệm mua sắm hiện đại,
+            nhanh chóng và dễ sử dụng.
+        </p>
+
+        <br>
+
+        <p>
+            Từ giao diện, sản phẩm cho đến trải nghiệm
+            giỏ hàng đều được thiết kế theo phong cách
+            tối giản nhưng cao cấp.
+        </p>
+
+    </div>
+
+
+    <div class="features">
+
+        <div class="feature reveal">
+            <div class="icon">⚡</div>
+            <h3>Nhanh</h3>
+            <p>Trang web tối ưu để tải nhanh và mượt.</p>
+        </div>
+
+        <div class="feature reveal">
+            <div class="icon">🎨</div>
+            <h3>Đẹp</h3>
+            <p>Giao diện hiện đại với hiệu ứng chuyển động.</p>
+        </div>
+
+        <div class="feature reveal">
+            <div class="icon">📱</div>
+            <h3>Responsive</h3>
+            <p>Hoạt động tốt trên máy tính và điện thoại.</p>
+        </div>
+
+        <div class="feature reveal">
+            <div class="icon">🛒</div>
+            <h3>Dễ mua</h3>
+            <p>Thêm sản phẩm vào giỏ chỉ với một lần nhấn.</p>
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- SECURITY -->
+
+<section id="security">
+
+<div class="container">
+
+<div class="section-title reveal">
+    <small>SECURITY</small>
+    <h2>Bảo mật & quyền riêng tư</h2>
+</div>
+
+<div class="security">
+
+    <div class="security-card reveal">
+        <div class="icon">🔒</div>
+        <h3>Bảo vệ dữ liệu</h3>
+        <p>
+            Thông tin khách hàng không nên được lưu
+            trực tiếp trong mã HTML/JavaScript phía trình duyệt.
+        </p>
+    </div>
+
+    <div class="security-card reveal">
+        <div class="icon">🛡️</div>
+        <h3>HTTPS</h3>
+        <p>
+            Khi đưa website lên Internet, hãy sử dụng
+            HTTPS để mã hóa kết nối giữa người dùng
+            và máy chủ.
+        </p>
+    </div>
+
+    <div class="security-card reveal">
+        <div class="icon">💳</div>
+        <h3>Thanh toán an toàn</h3>
+        <p>
+            Không tự xử lý thông tin thẻ trong JavaScript.
+            Nên sử dụng cổng thanh toán uy tín ở phía server.
+        </p>
+    </div>
+
+    <div class="security-card reveal">
+        <div class="icon">🔑</div>
+        <h3>Đăng nhập</h3>
+        <p>
+            Tài khoản thực tế cần backend, mã hóa mật khẩu
+            và hệ thống xác thực an toàn.
+        </p>
+    </div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- TERMS -->
+
+<section id="terms">
+
+<div class="container">
+
+<div class="section-title reveal">
+    <small>LEGAL</small>
+    <h2>Điều khoản sử dụng</h2>
+</div>
+
+<div class="terms reveal">
+
+    <h3>1. Sử dụng website</h3>
+
+    <p>
+        Người dùng đồng ý sử dụng website đúng mục đích
+        và cung cấp thông tin chính xác khi đặt hàng.
+    </p>
+
+
+    <h3>2. Sản phẩm</h3>
+
+    <p>
+        Thông tin sản phẩm, hình ảnh và giá bán có thể
+        được cập nhật theo từng thời điểm.
+    </p>
+
+
+    <h3>3. Đơn hàng</h3>
+
+    <p>
+        Đơn hàng chỉ được xác nhận chính thức sau khi
+        hệ thống bán hàng xác nhận đơn.
+    </p>
+
+
+    <h3>4. Quyền riêng tư</h3>
+
+    <p>
+        Thông tin khách hàng chỉ nên được sử dụng cho
+        mục đích xử lý đơn hàng và hỗ trợ khách hàng
+        theo chính sách của cửa hàng.
+    </p>
+
+
+    <h3>5. Thay đổi điều khoản</h3>
+
+    <p>
+        NOVA STORE có thể cập nhật điều khoản để phù hợp
+        với hoạt động của website.
+    </p>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 <strong>NOVA STORE</strong> —
+        Premium Shopping Experience
+    </p>
+
+    <br>
+
+    <p>
+        Bảo mật • Điều khoản • Hỗ trợ khách hàng
+    </p>
+
+</footer>
+
+
+<!-- CART -->
+
+<div class="cart" id="cart">
+
+    <div class="cart-head">
+
+        <h2>🛒 Giỏ hàng</h2>
+
+        <button class="close" onclick="closeCart()">
+            ×
+        </button>
+
+    </div>
+
+    <div class="cart-items" id="cartItems">
+        <p style="color:#777">
+            Chưa có sản phẩm.
+        </p>
+    </div>
+
+    <div class="total">
+        Tổng: <span id="total">0₫</span>
+    </div>
+
+    <br>
+
+    <button class="btn btn-primary"
+        style="width:100%"
+        onclick="checkout()">
+        Tiến hành đặt hàng
+    </button>
+
+</div>
+
+
+<script>
+
+/* =========================
+   CART SYSTEM
+========================= */
+
+let cart = [];
+
+function formatMoney(number){
+
+    return number.toLocaleString('vi-VN') + '₫';
+
+}
+
+
+function addCart(name,price){
+
+    cart.push({
+        name:name,
+        price:price
+    });
+
+    updateCart();
+
+    openCart();
+
+}
+
+
+function updateCart(){
+
+    const items =
+        document.getElementById("cartItems");
+
+    const count =
+        document.getElementById("cartCount");
+
+    const total =
+        document.getElementById("total");
+
+    count.textContent = cart.length;
+
+    if(cart.length === 0){
+
+        items.innerHTML =
+            '<p style="color:#777">Chưa có sản phẩm.</p>';
+
+        total.textContent = "0₫";
+
+        return;
+    }
+
+
+    let sum = 0;
+
+    items.innerHTML = "";
+
+    cart.forEach((item,index)=>{
+
+        sum += item.price;
+
+        const div =
+            document.createElement("div");
+
+        div.className = "cart-item";
+
+        div.innerHTML = `
+            <div>
+                <strong>${escapeHTML(item.name)}</strong>
+                <br>
+                <small style="color:#888">
+                    ${formatMoney(item.price)}
+                </small>
+            </div>
+
+            <button
+                onclick="removeItem(${index})"
+                style="
+                border:0;
+                background:none;
+                color:#ff6b7a;
+                cursor:pointer;">
+                Xóa
+            </button>
+        `;
+
+        items.appendChild(div);
+
+    });
+
+    total.textContent = formatMoney(sum);
+
+}
+
+
+function removeItem(index){
+
+    cart.splice(index,1);
+
+    updateCart();
+
+}
+
+
+function openCart(){
+
+    document
+        .getElementById("cart")
+        .classList.add("open");
+
+}
+
+
+function closeCart(){
+
+    document
+        .getElementById("cart")
+        .classList.remove("open");
+
+}
+
+
+function checkout(){
+
+    if(cart.length === 0){
+
+        alert("Giỏ hàng đang trống.");
+
+        return;
+    }
+
+    alert(
+        "Demo đặt hàng thành công!\\n\\n" +
+        "Website thật cần kết nối backend " +
+        "và cổng thanh toán để xử lý đơn hàng."
+    );
+
+}
+
+
+/* =========================
+   BASIC XSS-SAFE TEXT
+========================= */
+
+function escapeHTML(text){
+
+    const div = document.createElement("div");
+
+    div.textContent = text;
+
+    return div.innerHTML;
+
+}
+
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+const observer =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if(entry.isIntersecting){
+
+                    entry.target.classList.add("show");
+
+                }
+
+            });
+
+        },
+        {
+            threshold:.12
+        }
+    );
+
+
+document
+    .querySelectorAll(".reveal")
+    .forEach(el => observer.observe(el));
+
+
+/* =========================
+   PREVENT ACCIDENTAL DRAG
+========================= */
+
+document
+    .querySelectorAll("button")
+    .forEach(button => {
+
+        button.addEventListener(
+            "mousedown",
+            e => e.preventDefault()
+        );
+
+    });
+
+</script>
+
+</body>
+</html>
